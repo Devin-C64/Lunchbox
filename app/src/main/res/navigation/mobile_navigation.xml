@@ -20,6 +20,12 @@
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.lunchbox.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label="Notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_offers"
+        android:name="com.example.lunchbox.ui.offers.OffersFragment"
+        android:label="Offers"
+        tools:layout="@layout/fragment_offers" />
 </navigation>
