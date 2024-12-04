@@ -3,5 +3,18 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="title_add">Add</string>
+    <string name="title_add">Add Item</string>
+    <string name="required">Required</string>
+    <string name="item_name">Item Name</string>
+    <string name="quantity">Quantity</string>
+    <string name="expiry_date_text">Select Expiry Date</string>
+    <string name="date_picker_button">JAN 01 2020</string>
+    <string name="take_photo_button">Take Photo</string>
+    <string name="description">Item Description</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_camera">Camera</string>
+    <string name="tags">Type tags (separated by commas)</string>
+    <string name="postItemBtn">Post</string>
+    <string name="SaveDraftBtn">Save Draft</string>
 </resources>

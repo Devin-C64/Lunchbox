@@ -23,6 +23,12 @@
         android:label="@string/title_add"
         tools:layout="@layout/fragment_add" />
 
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_camera"-->
+<!--        android:name="com.example.lunchbox.camera.CameraFragment"-->
+<!--        android:label="@string/title_add"-->
+<!--        tools:layout="@layout/fragment_add" />-->
+
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.lunchbox.ui.notifications.NotificationsFragment"
