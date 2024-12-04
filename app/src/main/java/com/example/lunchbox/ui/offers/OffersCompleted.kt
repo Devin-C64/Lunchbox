@@ -28,6 +28,10 @@ class OffersCompleted : Fragment() {
         binding.receivedButton.setOnClickListener{
             it.findNavController().navigate(R.id.action_offersFragment_to_receivedFragment)
         }
+        binding.homeButton.setOnClickListener{
+            it.findNavController().navigate(R.id.action_offersFragment_to_navigation_home)
+        }
+
 
         return binding.root
     }
