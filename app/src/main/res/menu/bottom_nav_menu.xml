@@ -17,7 +17,7 @@
         android:title="@string/title_notifications" />
     
     <item
-        android:id="@+id/navigation_offers"
+        android:id="@+id/offersFragment"
         android:title="Offers"/>
 
 </menu>

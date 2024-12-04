@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -15,7 +16,7 @@ import java.lang.reflect.Array.get
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,20 +31,10 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.navigation_offers
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.offersFragment
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-
-        //Code to Handle Offers Page Navigation
-        val completedButton = findViewById<Button>(R.id.completedButton)
-        val sentButton = findViewById<Button>(R.id.sentButton)
-        val receivedButton = findViewById<Button>(R.id.receivedButton)
-
-
-
-
     }
 }

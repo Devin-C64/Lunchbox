@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.offers.OffersFragment"
-    tools:ignore="VisualLintBounds">
+    tools:context=".ui.offers.OffersCompleted"
+    tools:ignore="VisualLintBounds"
+    android:id="@+id/offersFragment"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
