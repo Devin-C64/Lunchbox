@@ -16,6 +16,11 @@
         android:icon="@drawable/baseline_add_circle_outline_24"
         android:title="@string/title_add"/>
 
+<!--    <item-->
+<!--        android:id="@+id/navigation_camera"-->
+<!--        android:icon="@drawable/camera"-->
+<!--        android:title="@string/title_camera"/>-->
+
     <item
         android:id="@+id/navigation_notifications"
         android:icon="@drawable/ic_notifications_black_24dp"

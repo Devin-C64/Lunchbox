@@ -1,12 +1,12 @@
-package com.example.lunchbox.ui.add
+package com.example.lunchbox.camera
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class AddViewModel : ViewModel() {
+class CameraViewModel : ViewModel() {
     private val _text = MutableLiveData<String>().apply {
-//        value = "This is Add Fragment"
+        value = "This is Camera Fragment"
     }
     val text: LiveData<String> = _text
 }
