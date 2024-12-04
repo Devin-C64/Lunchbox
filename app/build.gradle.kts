@@ -66,4 +66,5 @@ dependencies {
 
     // If you want to additionally use the CameraX View class
     implementation("androidx.camera:camera-view:1.4.0")
+    implementation("androidx.camera:camera-extensions:1.4.0")
 }
