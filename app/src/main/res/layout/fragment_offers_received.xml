@@ -5,55 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.offers.OffersFragment"
+    tools:context=".ui.offers.OffersReceived"
     tools:ignore="VisualLintBounds">
-
-    <TextView
-        android:id="@+id/offersTitle"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="My Offers"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:orientation="horizontal"
-        >
+        android:layout_height="70dp"
+        android:layout_marginLeft="7dp"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/completedButton"
             android:layout_width="126dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="10dp"
-            android:background="#16D7FE"
+            android:layout_height="70dp"
+            android:layout_marginLeft="12dp"
+            android:backgroundTint="#16D7FE"
             android:text="Completed"
             app:cornerRadius="50dp" />
 
         <Button
             android:id="@+id/sentButton"
             android:layout_width="125dp"
-            android:layout_height="60dp"
+            android:layout_height="70dp"
             android:layout_marginLeft="5dp"
+            android:backgroundTint="#16D7FE"
             android:text="Sent"
-            app:cornerRadius="50dp" />
+            app:cornerRadius="50dp"/>
 
         <Button
             android:id="@+id/receivedButton"
             android:layout_width="125dp"
-            android:layout_height="60dp"
+            android:layout_height="70dp"
             android:layout_marginLeft="5dp"
+            android:backgroundTint="#FFA43D"
             android:text="Received"
             app:cornerRadius="50dp"/>
     </LinearLayout>
 
     <ListView
+        android:id="@+id/offersListReceived"
         android:layout_width="wrap_content"
         android:layout_height="400dp">
 
     </ListView>
     <TextView
-        android:id="@+id/text_offers"
+        android:id="@+id/text_offers_received"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

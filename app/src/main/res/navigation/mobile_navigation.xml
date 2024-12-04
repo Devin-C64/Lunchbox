@@ -30,8 +30,44 @@
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
-        android:id="@+id/navigation_offers"
-        android:name="com.example.lunchbox.ui.offers.OffersFragment"
+        android:id="@+id/offersFragment"
+        android:name="com.example.lunchbox.ui.offers.OffersCompleted"
         android:label="Offers"
-        tools:layout="@layout/fragment_offers" />
+        tools:layout="@layout/fragment_offers_completed"
+        >
+        <action
+            android:id="@+id/action_offers_to_sent"
+            app:destination="@id/sentFragment" />
+        <action
+            android:id="@+id/action_offersFragment_to_receivedFragment"
+            app:destination="@id/receivedFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/sentFragment"
+        android:name="com.example.lunchbox.ui.offers.OffersSent"
+        android:label="Sent"
+        tools:layout="@layout/fragment_offers_sent"
+        >
+        <action
+            android:id="@+id/action_sentFragment_to_receivedFragment"
+            app:destination="@id/receivedFragment" />
+        <action
+            android:id="@+id/action_sentFragment_to_offersFragment"
+            app:destination="@id/offersFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/receivedFragment"
+        android:name="com.example.lunchbox.ui.offers.OffersReceived"
+        android:label="Received"
+        tools:layout="@layout/fragment_offers_received">
+        <action
+            android:id="@+id/action_receivedFragment_to_sentFragment"
+            app:destination="@id/sentFragment" />
+        <action
+            android:id="@+id/action_receivedFragment_to_offersFragment"
+            app:destination="@id/offersFragment" />
+    </fragment>
+
 </navigation>
