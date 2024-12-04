@@ -61,24 +61,17 @@ class AddFragment : Fragment() {
 
         binding.postItemBtn.setOnClickListener{
             Toast.makeText(requireContext(), "Item Posted", Toast.LENGTH_SHORT).show()
-//            val fragManager = requireActivity().supportFragmentManager
-//            val transaction = fragManager.beginTransaction()
-//            transaction.replace(R.id.navigation_add,
-//                fragManager.findFragmentById(R.id.navigation_home)!!
-//            )
-//            transaction.commitNowAllowingStateLoss()
-//            transaction.commit()
+            val newFrag = HomeFragment()
+            val fragManager = requireActivity().supportFragmentManager
+            val transaction = fragManager.beginTransaction()
+            transaction.replace(R.id.navigation_add, newFrag).commit()
         }
 
         binding.captureImgBtn.setOnClickListener {
-//            val fragManager = requireActivity().supportFragmentManager
-//            val transaction = fragManager.beginTransaction()
-//            transaction.replace(
-//                R.id.navigation_camera,
-//                findViewTreeLifecycleOwner(R.id.navigation_add)
-//            )
-//            transaction.addToBackStack('R.id.navigation_add') // if u want this fragment to stay in stack specify it
-//            transaction.commit()
+            val newFrag = CameraFragment()
+            val fragManager = requireActivity().supportFragmentManager
+            val transaction = fragManager.beginTransaction()
+            transaction.replace(R.id.navigation_add, newFrag).commit()
         }
         return root
     }
