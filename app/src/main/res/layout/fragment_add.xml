@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:isScrollContainer="true"
+    android:layout_marginTop="45dp"
     tools:context=".ui.add.AddFragment">
 
     <LinearLayout

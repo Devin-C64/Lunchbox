@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.profile.ProfilePage">
+    tools:context=".ui.profile.ProfilePage"
+    android:layout_marginTop="45dp">
 
     <ImageButton
         android:id="@+id/imageButton2"
