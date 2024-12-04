@@ -1,5 +1,6 @@
 package com.example.lunchbox.camera
 
+
 import android.content.pm.PackageManager
 import android.graphics.Camera
 import android.os.Build
@@ -28,6 +29,9 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 import kotlin.math.abs
 
+//commenting this out because I think i got the camera to work without this file
+
+/*
 class CameraFragment : Fragment() {
 
     private var _binding: FragmentCameraBinding? = null
@@ -197,3 +201,5 @@ class CameraFragment : Fragment() {
         _binding = null
     }
 }
+
+ */
