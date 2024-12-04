@@ -19,7 +19,7 @@
             android:layout_width="126dp"
             android:layout_height="70dp"
             android:layout_marginLeft="12dp"
-            android:backgroundTint="#FFA43D"
+            android:backgroundTint="#16D7FE"
             android:text="Completed"
             app:cornerRadius="50dp" />
 
@@ -28,7 +28,7 @@
             android:layout_width="125dp"
             android:layout_height="70dp"
             android:layout_marginLeft="5dp"
-            android:backgroundTint="#16D7FE"
+            android:backgroundTint="#FFA43D"
             android:text="Sent"
             app:cornerRadius="50dp"/>
 
@@ -43,16 +43,13 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/offersList"
+        android:id="@+id/offersListSent"
         android:layout_width="wrap_content"
         android:layout_height="400dp">
 
-
-
-
     </ListView>
     <TextView
-        android:id="@+id/text_offers"
+        android:id="@+id/text_offers_sent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

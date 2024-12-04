@@ -1,6 +1,8 @@
 package com.example.lunchbox
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -8,10 +10,12 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.lunchbox.databinding.ActivityMainBinding
+import java.lang.reflect.Array.get
+
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,5 +35,15 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+
+        //Code to Handle Offers Page Navigation
+        val completedButton = findViewById<Button>(R.id.completedButton)
+        val sentButton = findViewById<Button>(R.id.sentButton)
+        val receivedButton = findViewById<Button>(R.id.receivedButton)
+
+
+
+
     }
 }
