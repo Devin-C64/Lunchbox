@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.offers.OffersReceived"
+    tools:ignore="VisualLintBounds">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="7dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/completedButton"
+            android:layout_width="126dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="12dp"
+            android:backgroundTint="#16D7FE"
+            android:text="Completed"
+            app:cornerRadius="50dp" />
+
+        <Button
+            android:id="@+id/sentButton"
+            android:layout_width="125dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="5dp"
+            android:backgroundTint="#16D7FE"
+            android:text="Sent"
+            app:cornerRadius="50dp"/>
+
+        <Button
+            android:id="@+id/receivedButton"
+            android:layout_width="125dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="5dp"
+            android:backgroundTint="#FFA43D"
+            android:text="Received"
+            app:cornerRadius="50dp"/>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/offersListReceived"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp">
+
+    </ListView>
+    <TextView
+        android:id="@+id/text_offers_received"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:text="You don't have any outstanding requests."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</LinearLayout>

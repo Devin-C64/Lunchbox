@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/offersFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.offers.OffersCompleted"
+    tools:ignore="VisualLintBounds">
+
+    <Button
+        android:id="@+id/homeButton"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:backgroundTint="#000000"
+        android:text="Back"
+        app:cornerRadius="50dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/completedButton"
+            android:layout_width="126dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="12dp"
+            android:backgroundTint="#FFA43D"
+            android:text="Completed"
+            app:cornerRadius="50dp" />
+
+        <Button
+            android:id="@+id/sentButton"
+            android:layout_width="125dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="5dp"
+            android:backgroundTint="#16D7FE"
+            android:text="Sent"
+            app:cornerRadius="50dp" />
+
+        <Button
+            android:id="@+id/receivedButton"
+            android:layout_width="125dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="5dp"
+            android:backgroundTint="#16D7FE"
+            android:text="Received"
+            app:cornerRadius="50dp" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="177dp"
+        android:orientation="horizontal"
+        app:cardBackgroundColor="#EFED7C">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:srcCompat="@drawable/milkyellowbg" />
+
+        <EditText
+            android:id="@+id/ItemName"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right|top"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Full Fat Milk"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_gravity="right|top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <EditText
+            android:id="@+id/TagsText"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center|right"
+            android:ems="10"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:text="Dairy ⋅ $$ ⋅ 0.6 Miles Away"
+            tools:ignore="DuplicateClickableBoundsCheck" />
+
+        <EditText
+            android:id="@+id/TradeWithText"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|right"
+            android:ems="10"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:text="Trade With: Li" />
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
