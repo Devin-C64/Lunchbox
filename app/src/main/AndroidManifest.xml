@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lunchbox"
         tools:targetApi="31">
+
+        <!-- Add the metadata for the Google Maps API key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBPh94XZqXPjJCAVkz60Q-Kszih2jsEuvw" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
