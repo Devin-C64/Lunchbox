@@ -15,7 +15,7 @@ class SearchFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var adapter: ArrayAdapter<String>
-    private val data = arrayOf("Apple", "Banana", "Cherry", "Date", "Grape", "Orange")
+    private val data = arrayOf("Apple", "Banana", "Cherry", "Date", "Grape", "Orange", "Dr. Pepper", "Milk", "Spaghetti Noodles", "Raisins", "Flour", "Sugar", "Cumin", "Apple Sauce", "Peanut Butter")
 
     override fun onCreateView(
         inflater: LayoutInflater,
