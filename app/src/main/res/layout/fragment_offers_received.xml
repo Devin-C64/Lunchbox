@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.offers.OffersReceived"
-    tools:ignore="VisualLintBounds">
+    tools:ignore="VisualLintBounds"
+    android:layout_marginTop="55dp">
 
     <LinearLayout
         android:layout_width="match_parent"
