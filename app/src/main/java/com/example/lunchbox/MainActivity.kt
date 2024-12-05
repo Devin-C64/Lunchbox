@@ -3,6 +3,7 @@ package com.example.lunchbox
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -17,6 +18,8 @@ import java.lang.reflect.Array.get
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var signupLink: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,5 +39,16 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        setContentView(R.layout.login) // Ensure this is the correct layout file
+
+        signupLink = findViewById(R.id.signup_link)
+
+        // Set click listener on the "Sign Up" link
+        signupLink.setOnClickListener {
+            // Start the SignUpActivity
+            val intent = Intent(this@MainActivity, SignUpActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
