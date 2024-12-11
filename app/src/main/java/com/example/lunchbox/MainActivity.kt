@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -74,6 +75,8 @@ class MainActivity : AppCompatActivity() {
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var signupLink: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,11 +91,21 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_add, R.id.navigation_notifications, R.id.offersFragment
-
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_add, R.id.navigation_search, R.id.offersFragment
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        setContentView(R.layout.login) // Ensure this is the correct layout file
+
+        signupLink = findViewById(R.id.signup_link)
+
+        // Set click listener on the "Sign Up" link
+        signupLink.setOnClickListener {
+            // Start the SignUpActivity
+            val intent = Intent(this@MainActivity, SignUpActivity::class.java)
+            startActivity(intent)
+        }
     }
 }*/

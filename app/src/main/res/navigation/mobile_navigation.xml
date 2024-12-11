@@ -34,10 +34,10 @@
 <!--        tools:layout="@layout/fragment_add" />-->
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.lunchbox.ui.notifications.NotificationsFragment"
-        android:label="Notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_search"
+        android:name="com.example.lunchbox.ui.search.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/navigation_profile"
