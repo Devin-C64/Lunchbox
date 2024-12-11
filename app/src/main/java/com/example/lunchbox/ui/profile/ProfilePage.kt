@@ -19,6 +19,10 @@ class ProfilePage :Fragment() {
     ): View? {
         binding = FragmentProfilePageBinding.inflate(inflater, container, false)
 
+        binding.imageButton2.setOnClickListener{
+            it.findNavController().navigate(R.id.action_navigation_profile_to_settingsFragment)
+        }
+
         return binding.root
     }
 }

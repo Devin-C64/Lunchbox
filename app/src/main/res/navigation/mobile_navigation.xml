@@ -9,11 +9,7 @@
         android:id="@+id/navigation_home"
         android:name="com.example.lunchbox.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_navigation_home_to_offersFragment"
-            app:destination="@id/offersFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -43,7 +39,11 @@
         android:id="@+id/navigation_profile"
         android:name="com.example.lunchbox.ui.profile.ProfilePage"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile_page" />
+        tools:layout="@layout/fragment_profile_page" >
+        <action
+            android:id="@+id/action_navigation_profile_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/offersFragment"
@@ -57,9 +57,8 @@
         <action
             android:id="@+id/action_offersFragment_to_receivedFragment"
             app:destination="@id/receivedFragment" />
-        <action
-            android:id="@+id/action_offersFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
+
+
     </fragment>
 
     <fragment
@@ -89,5 +88,14 @@
             app:destination="@id/offersFragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.lunchbox.ui.settings.Settings"
+        android:label="settings"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
 
 </navigation>
