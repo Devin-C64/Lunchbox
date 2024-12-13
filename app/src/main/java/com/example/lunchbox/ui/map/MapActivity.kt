@@ -1,8 +1,12 @@
 package com.example.lunchbox.ui.map
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.view.View
+import android.widget.RelativeLayout
 import android.widget.SearchView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -13,10 +17,16 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.example.lunchbox.R
+
 
 class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var searchView: SearchView
+    private lateinit var infoPanel: RelativeLayout
+    private lateinit var personName: TextView
+    private lateinit var itemInfo: TextView
+    private lateinit var datePosted: TextView
     private val nearbyPeopleMarkers = mutableListOf<Marker>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +39,11 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         } else {
             initializeMap()
         }
+        // Initialize the info panel
+        infoPanel = findViewById(R.id.infoPanel)
+        personName = findViewById(R.id.personName)
+        itemInfo = findViewById(R.id.itemInfo)
+        datePosted = findViewById(R.id.datePosted)
 
         // Initialize SearchView for search functionality
         searchView = findViewById(R.id.searchView)
@@ -44,6 +59,48 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 return false
             }
         })
+
+        // Hide info panel initially
+        infoPanel.visibility = View.GONE
+
+        // Set up click listener for the info panel
+        infoPanel.setOnClickListener {
+            val intent = Intent(this@MapActivity, SellerInfoActivity::class.java)
+
+            // Pass the data based on the current marker title
+            when (personName.text.toString()) {
+                "Posted by: Dan" -> {
+                    intent.putExtra("name", "Dan")
+                    intent.putExtra("item", "Mozzarella cheese")
+                    intent.putExtra("distance", "1.2 miles away")
+                    intent.putExtra("datePosted", "15 Nov 2024")
+                    intent.putExtra("price", "3.50 $")
+                    intent.putExtra("weight", "8 oz")
+                    intent.putExtra("expiryDate", "30 Nov 2024")
+                }
+                "Posted by: Amy" -> {
+                    intent.putExtra("name", "Amy")
+                    intent.putExtra("item", "Cheddar cheese")
+                    intent.putExtra("distance", "0.8 miles away")
+                    intent.putExtra("datePosted", "12 Nov 2024")
+                    intent.putExtra("price", "2.75 $")
+                    intent.putExtra("weight", "5 oz")
+                    intent.putExtra("expiryDate", "25 Nov 2024")
+                }
+                "Posted by: Andy" -> {
+                    intent.putExtra("name", "Andy")
+                    intent.putExtra("item", "Gouda cheese")
+                    intent.putExtra("distance", "1.5 miles away")
+                    intent.putExtra("datePosted", "10 Nov 2024")
+                    intent.putExtra("price", "4.00 $")
+                    intent.putExtra("weight", "6 oz")
+                    intent.putExtra("expiryDate", "20 Nov 2024")
+                }
+            }
+
+            // Start SellerInfoActivity
+            startActivity(intent)
+        }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -59,14 +116,16 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
-        try {
-            mMap = googleMap
+        mMap = googleMap
 
-            // Set default location to UDEL, Newark, DE
-            val udelLocation = LatLng(39.6780, -75.7520)
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(udelLocation, 15f))
-        } catch (e: Exception) {
-            e.printStackTrace()
+        // Set default location to UDEL, Newark, DE
+        val udelLocation = LatLng(39.6780, -75.7520)
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(udelLocation, 15f))
+
+        // Add marker click listener
+        mMap.setOnMarkerClickListener { marker ->
+            showInfoPanel(marker)
+            true // Return true to consume the click event
         }
     }
 
@@ -76,6 +135,8 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             marker.remove()
         }
         nearbyPeopleMarkers.clear()
+        // Clear info panel
+        infoPanel.visibility = View.GONE
 
         if (query.equals("cheese", ignoreCase = true)) {
             // Add hardcoded locations for "cheese"
@@ -95,6 +156,27 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             // Move the camera to the first person's location
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(person1Location, 15f))
         }
+    }
+
+    private fun showInfoPanel(marker: Marker) {
+        when (marker.title) {
+            "Dan" -> {
+                personName.text = "Posted by: Dan"
+                itemInfo.text = "Item: Mozzarella cheese • 1.2 miles away"
+                datePosted.text = "Date posted: 15 Nov 2024"
+            }
+            "Amy" -> {
+                personName.text = "Posted by: Amy"
+                itemInfo.text = "Item: Cheddar cheese • 0.8 miles away"
+                datePosted.text = "Date posted: 12 Nov 2024"
+            }
+            "Andy" -> {
+                personName.text = "Posted by: Andy"
+                itemInfo.text = "Item: Gouda cheese • 1.5 miles away"
+                datePosted.text = "Date posted: 10 Nov 2024"
+            }
+        }
+        infoPanel.visibility = View.VISIBLE
     }
 
 }
