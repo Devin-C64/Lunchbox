@@ -12,6 +12,10 @@ import android.widget.Toast
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.InputStreamReader
+import com.example.lunchbox.R
+import androidx.navigation.fragment.findNavController
+import com.example.lunchbox.ui.message.MessageFragment
+
 
 
 class SearchFragment : Fragment() {
@@ -88,6 +92,11 @@ class SearchFragment : Fragment() {
         displayList.addAll(users)
         adapter.notifyDataSetChanged()
         showingItems = false
+
+        binding.listView.setOnItemClickListener { _, _, position, _ ->
+            val selectedUser = itemList.filter { it.name == itemName }[position]
+            openMessageFragment(selectedUser.username)
+        }
     }
 
     private fun resetToItemList() {
@@ -96,6 +105,15 @@ class SearchFragment : Fragment() {
         displayList.addAll(itemList.map { it.name }.distinct())
         adapter.notifyDataSetChanged()
         showingItems = true
+    }
+
+    private fun openMessageFragment(username: String) {
+        val fragment = MessageFragment()
+        val bundle = Bundle()
+        bundle.putString("username", username)
+        fragment.arguments = bundle
+
+        findNavController().navigate(R.id.navigation_message, bundle)
     }
 
     override fun onDestroyView() {
