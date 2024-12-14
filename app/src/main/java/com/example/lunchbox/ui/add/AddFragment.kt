@@ -3,16 +3,21 @@ package com.example.lunchbox.ui.add
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresExtension
 import androidx.core.view.drawToBitmap
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -25,6 +30,7 @@ import java.io.ByteArrayOutputStream
 class AddFragment : Fragment() {
     private lateinit var binding: FragmentAddBinding
 
+    @RequiresExtension(extension = Build.VERSION_CODES.R, version = 2)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,7 +39,7 @@ class AddFragment : Fragment() {
         binding = FragmentAddBinding.inflate(inflater, container, false)
 
         // Toast for Save Draft
-        binding.saveDraftbtn.setOnClickListener {
+        binding.fromAlbumBtn.setOnClickListener {
             Toast.makeText(requireContext(), "Draft Saved", Toast.LENGTH_SHORT).show()
         }
 
@@ -68,36 +74,52 @@ class AddFragment : Fragment() {
             bundle.putString("itemExpiry", itemExpiry)
             bundle.putString("itemTags", itemTags)
             bundle.putByteArray("image",byteArray)
-            //bundle.putString("image", imageString)
 
             it.findNavController().navigate(R.id.navigation_profile, bundle)  // Navigating to 'Profile' page
-//
-//            val newFrag = HomeFragment()
-//            val fragManager = requireActivity().supportFragmentManager
-//            val transaction = fragManager.beginTransaction()
-//            transaction.replace(R.id.navigation_add, newFrag).commit()
         }
 
         // Camera Functionality
         val cameraButton = binding.captureImgBtn
+        val albumButton = binding.fromAlbumBtn
         val previewView = binding.previewView
+        var isCamera = 0
+
+        if (previewView.drawable != null){
+            previewView.visibility = VISIBLE
+        } else {
+            previewView.visibility = GONE
+        }
 
         val launcher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
-                val image = result.data?.extras?.get("data") as Bitmap
-                previewView.setImageBitmap(image)
+                previewView.visibility = VISIBLE
+                if (isCamera == 1){
+                    val image = result.data?.extras?.get("data") as Bitmap
+                    previewView.setImageBitmap(image)
+                } else {
+                    val imageURI = result.data?.data as Uri
+                    previewView.setImageURI(imageURI)
+                }
             }
         }
 
         cameraButton.setOnClickListener {
+            isCamera = 1
             val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             launcher.launch(cameraIntent)
         }
 
+        albumButton.setOnClickListener {
+            isCamera = 0
+            val albumIntent = Intent(MediaStore.ACTION_PICK_IMAGES)
+            launcher.launch((albumIntent))
+        }
+
         return binding.root
     }
+
 }
 /*
 class AddFragment : Fragment() {

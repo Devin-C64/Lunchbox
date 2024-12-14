@@ -43,6 +43,10 @@ class ProfilePage :Fragment() {
             val inputTags = args?.getString("itemTags")
             val image = args?.getByteArray("image")
             if (inputData != null) {
+
+                val numPosts :TextView = binding.editTextText2
+                numPosts.text ="Listings: 1"
+
                 postedItem = inputData
                 val ItemNameText : TextView = binding.ItemName
                 ItemNameText.text = inputName.toString()
