@@ -1,38 +1,26 @@
 package com.example.lunchbox.ui.add
 
 import android.app.Activity
-import android.app.DatePickerDialog
-import android.app.FragmentManager
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.icu.util.Calendar
-import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.FileProvider
+import androidx.core.view.drawToBitmap
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.navigation.findNavController
 import com.example.lunchbox.R
 import com.example.lunchbox.databinding.FragmentAddBinding
-import com.example.lunchbox.databinding.FragmentOffersCompletedBinding
-import com.example.lunchbox.ui.home.HomeFragment
-import com.example.lunchbox.ui.profile.ProfilePage
-import java.io.File
-import java.time.Month
+import java.io.ByteArrayOutputStream
+
+
 
 class AddFragment : Fragment() {
     private lateinit var binding: FragmentAddBinding
@@ -52,9 +40,35 @@ class AddFragment : Fragment() {
         // Toast for Post Item
         binding.postItemBtn.setOnClickListener {
             Toast.makeText(requireContext(), "Item Posted", Toast.LENGTH_SHORT).show()
+
+            val itemNameText : EditText = requireView().findViewById(R.id.item_name_edit)
+            val itemName = itemNameText.text.toString()
+
+            val itemQuantText : EditText = requireView().findViewById(R.id.quantity_edit)
+            val itemQuant = itemQuantText.text.toString()
+
+            val itemExpiryDate : DatePicker = requireView().findViewById(R.id.date_picker_container)
+            val itemExpiry = (itemExpiryDate.month+1).toString() + "/" + itemExpiryDate.dayOfMonth.toString() + "/" + itemExpiryDate.year.toString()
+
+            val itemTagsText : EditText = requireView().findViewById(R.id.item_tags_edit)
+            val itemTags = itemTagsText.text.toString()
+
+            val image: ImageView = binding.previewView
+            val imageBundle = image.drawToBitmap()
+            val stream = ByteArrayOutputStream()
+            imageBundle.compress(Bitmap.CompressFormat.PNG, 100, stream)
+            val byteArray: ByteArray = stream.toByteArray()
+
+
             // Bundle data to send to Profile fragment
             val bundle = Bundle()
             bundle.putInt("postedItem", 1)
+            bundle.putString("itemName", itemName)
+            bundle.putString("itemQuant", itemQuant)
+            bundle.putString("itemExpiry", itemExpiry)
+            bundle.putString("itemTags", itemTags)
+            bundle.putByteArray("image",byteArray)
+            //bundle.putString("image", imageString)
 
             it.findNavController().navigate(R.id.navigation_profile, bundle)  // Navigating to 'Profile' page
 //
