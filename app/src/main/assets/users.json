@@ -1,0 +1,40 @@
+[
+  {
+    "username": "cisc482test",
+    "email": "cisc482test@gmail.com",
+    "password": "test12345!",
+    "listings": [
+      {
+        "name": "Apple",
+        "quantity": 1.0 ,
+        "date": "12/10/2024",
+        "description": "A ripe McIntosh Apple.",
+        "tags": ["fruit", "vegan", "vegetarian"],
+        "images": ["mcintoshapple.JPG"]
+      },
+      {
+        "name": "Cheddar Cheese",
+        "quantity": 1.0,
+        "date": "12/22/2024",
+        "description": "An unopened block of vermont cheddar cheese.",
+        "tags": ["dairy","cheese","perishable"],
+        "images": ["vermontcheddar.JPG"]
+      }
+
+    ],
+    "offers": {
+      "completed": [
+        {
+          "name": "Full Fat Milk",
+          "image" : "",
+          "distance": "0.6"
+
+        }
+      ],
+      "sent": [
+      ],
+      "recieved": []
+    }
+  }
+
+]

@@ -7,12 +7,14 @@
     android:orientation="vertical"
     android:isScrollContainer="true"
     android:layout_marginTop="45dp"
-    tools:context=".ui.add.AddFragment">
+    tools:context=".ui.add.AddFragment"
+    android:layout_marginBottom="15dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="ExtraText">
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/item_name_container"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
