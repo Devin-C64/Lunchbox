@@ -38,11 +38,6 @@ class AddFragment : Fragment() {
     ): View? {
         binding = FragmentAddBinding.inflate(inflater, container, false)
 
-        // Toast for Save Draft
-        binding.fromAlbumBtn.setOnClickListener {
-            Toast.makeText(requireContext(), "Draft Saved", Toast.LENGTH_SHORT).show()
-        }
-
         // Toast for Post Item
         binding.postItemBtn.setOnClickListener {
             Toast.makeText(requireContext(), "Item Posted", Toast.LENGTH_SHORT).show()
