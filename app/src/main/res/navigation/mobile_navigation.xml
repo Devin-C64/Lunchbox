@@ -14,7 +14,7 @@
     <activity
         android:id="@+id/navigation_dashboard"
         android:name="com.example.lunchbox.ui.map.MapActivity"
-        android:label="@string/fragment_dashboard"/>
+        android:label="@string/title_dashboard"/>
 
 <!--    <fragment-->
 <!--        android:id="@+id/navigation_dashboard"-->
