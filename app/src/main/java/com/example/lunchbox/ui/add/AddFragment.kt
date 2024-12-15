@@ -7,11 +7,14 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.ImageView
@@ -40,37 +43,78 @@ class AddFragment : Fragment() {
 
         // Toast for Post Item
         binding.postItemBtn.setOnClickListener {
-            Toast.makeText(requireContext(), "Item Posted", Toast.LENGTH_SHORT).show()
-
             val itemNameText : EditText = requireView().findViewById(R.id.item_name_edit)
-            val itemName = itemNameText.text.toString()
-
             val itemQuantText : EditText = requireView().findViewById(R.id.quantity_edit)
-            val itemQuant = itemQuantText.text.toString()
-
             val itemExpiryDate : DatePicker = requireView().findViewById(R.id.date_picker_container)
-            val itemExpiry = (itemExpiryDate.month+1).toString() + "/" + itemExpiryDate.dayOfMonth.toString() + "/" + itemExpiryDate.year.toString()
-
             val itemTagsText : EditText = requireView().findViewById(R.id.item_tags_edit)
-            val itemTags = itemTagsText.text.toString()
-
+            val itemDescText : EditText = requireView().findViewById(R.id.item_description_edit)
             val image: ImageView = binding.previewView
-            val imageBundle = image.drawToBitmap()
-            val stream = ByteArrayOutputStream()
-            imageBundle.compress(Bitmap.CompressFormat.PNG, 100, stream)
-            val byteArray: ByteArray = stream.toByteArray()
+
+            val itemName = itemNameText.text.toString()
+            val itemQuant = itemQuantText.text.toString()
+            val itemExpiry = (itemExpiryDate.month+1).toString() + "/" + itemExpiryDate.dayOfMonth.toString() + "/" + itemExpiryDate.year.toString()
+            val itemTags = itemTagsText.text.toString()
+            val itemDesc = itemDescText.text.toString()
+
+            if (itemName.isNotEmpty() and itemQuant.isNotEmpty() and itemExpiry.isNotEmpty() and itemTags.isNotEmpty() and itemDesc.isNotEmpty() and (image.drawable!=null)) {
+                val imageBundle = image.drawToBitmap()
+                val stream = ByteArrayOutputStream()
+                imageBundle.compress(Bitmap.CompressFormat.PNG, 100, stream)
+                val byteArray: ByteArray = stream.toByteArray()
+
+                Toast.makeText(requireContext(), "Item Posted", Toast.LENGTH_SHORT).show()
+
+                // Bundle data to send to Profile fragment
+                val bundle = Bundle()
+                bundle.putInt("postedItem", 1)
+                bundle.putString("itemName", itemName)
+                bundle.putString("itemQuant", itemQuant)
+                bundle.putString("itemExpiry", itemExpiry)
+                bundle.putString("itemTags", itemTags)
+                bundle.putByteArray("image", byteArray)
+                bundle.putString("itemDesc", itemDesc)
 
 
-            // Bundle data to send to Profile fragment
-            val bundle = Bundle()
-            bundle.putInt("postedItem", 1)
-            bundle.putString("itemName", itemName)
-            bundle.putString("itemQuant", itemQuant)
-            bundle.putString("itemExpiry", itemExpiry)
-            bundle.putString("itemTags", itemTags)
-            bundle.putByteArray("image",byteArray)
-
-            it.findNavController().navigate(R.id.navigation_profile, bundle)  // Navigating to 'Profile' page
+                it.findNavController().navigate(R.id.navigation_profile, bundle)  // Navigating to 'Profile' page
+            } else{
+                if (itemName.isEmpty()) {
+                    Toast.makeText(
+                        requireContext(),
+                        "Please provide an item name",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else if (itemQuant.isEmpty()){
+                    Toast.makeText(
+                        requireContext(),
+                        "Please provide an item quantity",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else if (itemExpiry.isEmpty()){
+                    Toast.makeText(
+                        requireContext(),
+                        "Please provide an expiry date",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else if (itemDesc.isEmpty()){
+                    Toast.makeText(
+                        requireContext(),
+                        "Please provide a description",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else if (itemTags.isEmpty()){
+                    Toast.makeText(
+                        requireContext(),
+                        "Please provide some tags",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else if (image.drawable==null){
+                    Toast.makeText(
+                        requireContext(),
+                        "Please provide an image",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
         }
 
         // Camera Functionality

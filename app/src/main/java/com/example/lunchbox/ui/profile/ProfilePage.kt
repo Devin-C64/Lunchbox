@@ -42,6 +42,7 @@ class ProfilePage :Fragment() {
             val inputExpiry = args?.getString("itemExpiry")
             val inputTags = args?.getString("itemTags")
             val image = args?.getByteArray("image")
+            //val inputDesc = args?.getString("itemDesc")
             if (inputData != null) {
 
                 val numPosts :TextView = binding.editTextText2
@@ -71,6 +72,8 @@ class ProfilePage :Fragment() {
             binding.newPost.visibility = GONE
             binding.editTextText5.visibility = VISIBLE
         }
+
+
 
         return binding.root
     }

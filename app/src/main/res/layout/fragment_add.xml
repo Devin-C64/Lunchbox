@@ -137,10 +137,19 @@
         android:layout_height="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:text="Images:"
+        android:text="Image:"
         android:textSize="18dp"
         app:helperText="@string/required"
         app:helperTextTextColor="@android:color/holo_red_dark" />
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="      Required"
+            android:textSize="12dp"
+            android:textColor="@android:color/holo_red_dark" />
 
 
         <ImageView
