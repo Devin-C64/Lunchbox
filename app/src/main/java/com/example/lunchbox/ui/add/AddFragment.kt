@@ -59,10 +59,11 @@ class AddFragment : Fragment() {
         }
 
         // Toast for Save Draft
-        binding.saveDraftbtn.setOnClickListener {
+
+        /*binding.saveDraftbtn.setOnClickListener {
             Toast.makeText(requireContext(), "Draft Saved", Toast.LENGTH_SHORT).show()
         }
-
+*/
         // Toast for Post Item
         binding.postItemBtn.setOnClickListener {
             Toast.makeText(requireContext(), "Item Posted", Toast.LENGTH_SHORT).show()
@@ -98,59 +99,3 @@ class AddFragment : Fragment() {
         _binding = null
     }
 }
-
-/*
-class AddFragment : Fragment() {
-
-    private var _binding: FragmentAddBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-
-        val addViewModel =
-            ViewModelProvider(this).get(AddViewModel::class.java)
-
-        _binding = FragmentAddBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.itemNameEdit
-        addViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-
-        binding.saveDraftbtn.setOnClickListener{
-            Toast.makeText(requireContext(), "Draft Saved", Toast.LENGTH_SHORT).show()
-        }
-
-        binding.postItemBtn.setOnClickListener{
-            Toast.makeText(requireContext(), "Item Posted", Toast.LENGTH_SHORT).show()
-            val newFrag = HomeFragment()
-            val fragManager = requireActivity().supportFragmentManager
-            val transaction = fragManager.beginTransaction()
-            transaction.replace(R.id.navigation_add, newFrag).commit()
-        }
-/*
-        binding.captureImgBtn.setOnClickListener {
-            val newFrag = CameraFragment()
-            val fragManager = requireActivity().supportFragmentManager
-            val transaction = fragManager.beginTransaction()
-            transaction.replace(R.id.navigation_add, newFrag).commit()
-        }
-*/
-        return root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-}
-*/

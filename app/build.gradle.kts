@@ -35,6 +35,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        //compose = true
     }
     sourceSets {
         getByName("main") {
@@ -64,6 +65,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.gms:play-services-maps:18.1.0")
+    implementation("com.google.code.gson:gson:2.11.0")
 
 
     val camerax_version = "1.3.0"

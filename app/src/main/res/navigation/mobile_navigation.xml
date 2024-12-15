@@ -36,6 +36,12 @@
         tools:layout="@layout/fragment_search" />
 
     <fragment
+        android:id="@+id/navigation_message"
+        android:name="com.example.lunchbox.ui.message.MessageFragment"
+        android:label="Message"
+        tools:layout="@layout/fragment_message" />
+
+    <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.lunchbox.ui.profile.ProfilePage"
         android:label="Profile"
@@ -97,5 +103,7 @@
             android:id="@+id/action_settingsFragment_to_navigation_profile"
             app:destination="@id/navigation_profile" />
     </fragment>
+
+
 
 </navigation>
