@@ -81,9 +81,9 @@ class AddFragment : Fragment() {
 
             val itemName = itemNameText.text.toString()
             val itemQuant = itemQuantText.text.toString()
-            val itemExpiry = "${itemExpiryDate.month + 1}/${itemExpiryDate.dayOfMonth}/${itemExpiryDate.year}"
-            val itemTags = itemTagsText.text.toString().split(",").map { it.trim() }  // Convert to a list of tags
-            val itemDesc = itemDescText.text.toString()
+            val itemExpiry = "Expiry Date: " + "${itemExpiryDate.month + 1}/${itemExpiryDate.dayOfMonth}/${itemExpiryDate.year}"
+            val itemTags = "Tags: " + itemTagsText.text.toString()//.split(",").map { it.trim() }  // Convert to a list of tags
+            val itemDesc = "Desc: " + itemDescText.text.toString()
 
             if (itemName.isNotEmpty() && itemQuant.isNotEmpty() && itemExpiry.isNotEmpty() && itemTags.isNotEmpty() && itemDesc.isNotEmpty() && image.drawable != null) {
                 val imageBundle = image.drawToBitmap()
@@ -135,7 +135,7 @@ class AddFragment : Fragment() {
                 bundle.putString("itemName", itemName)
                 bundle.putString("itemQuant", itemQuant)
                 bundle.putString("itemExpiry", itemExpiry)
-                bundle.putString("itemTags", itemTags.joinToString(", "))
+                bundle.putString("itemTags", itemTags)//.joinToString(", "))
                 bundle.putByteArray("image", byteArray)
                 bundle.putString("itemDesc", itemDesc)
 
