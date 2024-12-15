@@ -13,47 +13,47 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/item_name_container"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        app:helperText="@string/required"
-        app:helperTextTextColor="@android:color/holo_red_dark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/item_name_edit"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/item_name_container"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/item_name"
-            android:lines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            app:helperText="@string/required"
+            app:helperTextTextColor="@android:color/holo_red_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/quantity_container"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        app:helperText="@string/required"
-        app:helperTextTextColor="@android:color/holo_red_dark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/item_name_container">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/item_name_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/item_name"
+                android:lines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/quantity_edit"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/quantity_container"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/quantity"
-            android:lines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            app:helperText="@string/required"
+            app:helperTextTextColor="@android:color/holo_red_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/item_name_container">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/quantity_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/quantity"
+                android:lines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/date_picker_title"
@@ -67,80 +67,80 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/quantity_container" />
 
-    <DatePicker
-        android:id="@+id/date_picker_container"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginHorizontal="20dp"
-        android:calendarViewShown="false"
-        android:datePickerMode="spinner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/date_picker_title" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/item_description_container"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        app:helperText="@string/required"
-        app:helperTextTextColor="@android:color/holo_red_dark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/date_picker_container">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/item_description_edit"
+        <DatePicker
+            android:id="@+id/date_picker_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/description"
-            android:lines="3" />
+            android:layout_height="150dp"
+            android:layout_marginHorizontal="20dp"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/date_picker_title" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <!--    <ImageView-->
-    <!--        android:id="@+id/captureImageView"-->
-    <!--        android:layout_width="90dp"-->
-    <!--        android:layout_height="90dp"-->
-    <!--        android:background="@drawable/camera"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/item_tags_container" />-->
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/item_tags_container"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="12dp"
-        app:helperText="@string/required"
-        app:helperTextTextColor="@android:color/holo_red_dark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/item_description_container">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/item_tags_edit"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/item_description_container"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/tags"
-            android:lines="3" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            app:helperText="@string/required"
+            app:helperTextTextColor="@android:color/holo_red_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/date_picker_container">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/item_description_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/description"
+                android:lines="3" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--    <ImageView-->
+        <!--        android:id="@+id/captureImageView"-->
+        <!--        android:layout_width="90dp"-->
+        <!--        android:layout_height="90dp"-->
+        <!--        android:background="@drawable/camera"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toBottomOf="@id/item_tags_container" />-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/item_tags_container"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="12dp"
+            app:helperText="@string/required"
+            app:helperTextTextColor="@android:color/holo_red_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/item_description_container">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/item_tags_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/tags"
+                android:lines="3" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-    <TextView
-        android:layout_width="350dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:text="Image:"
-        android:textSize="18dp"
-        app:helperText="@string/required"
-        app:helperTextTextColor="@android:color/holo_red_dark" />
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Image:"
+            android:textSize="18dp"
+            app:helperText="@string/required"
+            app:helperTextTextColor="@android:color/holo_red_dark" />
 
         <TextView
             android:layout_width="350dp"
@@ -162,68 +162,68 @@
             android:background="#D5D2D2"
             android:layout_marginBottom="5dp"/>
 
-<!--    <ImageView-->
-<!--        android:id="@+id/previewView"-->
-<!--        android:layout_width="350dp"-->
-<!--        android:layout_height="400dp"-->
-<!--        android:layout_marginLeft="40dp"-->
-<!--        android:layout_marginTop="5dp"-->
-<!--        android:background="#D5D2D2"-->
-<!--        tools:layout_editor_absoluteX="30dp"-->
-<!--        tools:layout_editor_absoluteY="590dp"-->
-<!--        android:layout_marginBottom="15dp"/>-->
+        <!--    <ImageView-->
+        <!--        android:id="@+id/previewView"-->
+        <!--        android:layout_width="350dp"-->
+        <!--        android:layout_height="400dp"-->
+        <!--        android:layout_marginLeft="40dp"-->
+        <!--        android:layout_marginTop="5dp"-->
+        <!--        android:background="#D5D2D2"-->
+        <!--        tools:layout_editor_absoluteX="30dp"-->
+        <!--        tools:layout_editor_absoluteY="590dp"-->
+        <!--        android:layout_marginBottom="15dp"/>-->
 
-    <LinearLayout
-        android:layout_width="440dp"
-        android:layout_height="120dp"
-        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="440dp"
+            android:layout_height="120dp"
+            android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/captureImgBtn"
-            android:layout_width="wrap_content"
+            <ImageButton
+                android:id="@+id/captureImgBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:backgroundTint="@color/orange_500"
+                android:src="@drawable/baseline_add_circle_outline_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.57"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_tags_container"
+                app:tint="@color/white" />
+
+            <ImageButton
+                android:id="@+id/fromAlbumBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:src="@drawable/baseline_file_upload_24"
+                app:layout_constraintRight_toLeftOf="@id/captureImgBtn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_tags_container"
+                android:backgroundTint="@color/orange_500"
+                app:tint="@color/white"/>
+
+            <Button
+                android:id="@+id/postItemBtn"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginLeft="50dp"
+                android:text="@string/postItemBtn" />
+
+        </LinearLayout>
+        <!--<TextView
+            android:id="@+id/text_add"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:backgroundTint="@color/orange_500"
-            android:src="@drawable/baseline_photo_camera_24"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.57"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/item_tags_container"
-            app:tint="@color/white" />
-
-        <ImageButton
-            android:id="@+id/fromAlbumBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:src="@drawable/baseline_file_upload_24"
-            app:layout_constraintRight_toLeftOf="@id/captureImgBtn"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/item_tags_container"
-            android:backgroundTint="@color/orange_500"
-            app:tint="@color/white"/>
-
-        <Button
-            android:id="@+id/postItemBtn"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginLeft="50dp"
-            android:text="@string/postItemBtn" />
-
-    </LinearLayout>
-    <!--<TextView
-        android:id="@+id/text_add"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" /> -->
+            app:layout_constraintTop_toTopOf="parent" /> -->
     </LinearLayout>
 </ScrollView>

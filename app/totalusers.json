@@ -1,0 +1,52 @@
+{
+  "totalusers":
+  [
+    {
+      "id": "000000001",
+      "username": "jmolli",
+      "email" : "juliatest1@gmail.com",
+      "password": "test12345!",
+      "settings": {
+        "firstname":"Julia",
+        "lastname" :"O'Neill"
+      },
+      "listings":[
+        {
+          "name": "Apple",
+          "datePosted": "12/10/2024",
+          "description": "One ripe McIntosh apple.",
+          "quantity": "1",
+          "tags": {
+            "location": "Smith Hall"
+          },
+          "images": []
+        }
+
+      ],
+      "offers": {
+        "completed": [
+          {
+            "name": "Full Fat Milk",
+            "username": "Li",
+            "distance": "0.6",
+            "closestSchoolBuilding" : "Smith Hall"
+          }
+        ],
+        "sent": [
+
+
+        ],
+        "recieved": [
+
+
+        ]
+      }
+
+    },
+    {
+      "id": "000000002",
+      "email": "test1@gmail.com"
+    }
+  ]
+
+}
