@@ -18,14 +18,90 @@
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.lunchbox.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_add"
+        android:name="com.example.lunchbox.ui.add.AddFragment"
+        android:label="@string/title_add"
+        tools:layout="@layout/fragment_add" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_camera"-->
+<!--        android:name="com.example.lunchbox.camera.CameraFragment"-->
+<!--        android:label="@string/title_add"-->
+<!--        tools:layout="@layout/fragment_add" />-->
 
     <fragment
-        android:id="@+id/navigation_offers"
-        android:name="com.example.lunchbox.ui.offers.OffersFragment"
+        android:id="@+id/navigation_search"
+        android:name="com.example.lunchbox.ui.search.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/navigation_message"
+        android:name="com.example.lunchbox.ui.message.MessageFragment"
+        android:label="Message"
+        tools:layout="@layout/fragment_message" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.lunchbox.ui.profile.ProfilePage"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile_page" >
+        <action
+            android:id="@+id/action_navigation_profile_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/offersFragment"
+        android:name="com.example.lunchbox.ui.offers.OffersCompleted"
         android:label="Offers"
-        tools:layout="@layout/fragment_offers" />
+        tools:layout="@layout/fragment_offers_completed"
+        >
+        <action
+            android:id="@+id/action_offers_to_sent"
+            app:destination="@id/sentFragment" />
+        <action
+            android:id="@+id/action_offersFragment_to_receivedFragment"
+            app:destination="@id/receivedFragment" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/sentFragment"
+        android:name="com.example.lunchbox.ui.offers.OffersSent"
+        android:label="Sent"
+        tools:layout="@layout/fragment_offers_sent"
+        >
+        <action
+            android:id="@+id/action_sentFragment_to_receivedFragment"
+            app:destination="@id/receivedFragment" />
+        <action
+            android:id="@+id/action_sentFragment_to_offersFragment"
+            app:destination="@id/offersFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/receivedFragment"
+        android:name="com.example.lunchbox.ui.offers.OffersReceived"
+        android:label="Received"
+        tools:layout="@layout/fragment_offers_received">
+        <action
+            android:id="@+id/action_receivedFragment_to_sentFragment"
+            app:destination="@id/sentFragment" />
+        <action
+            android:id="@+id/action_receivedFragment_to_offersFragment"
+            app:destination="@id/offersFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.lunchbox.ui.settings.Settings"
+        android:label="settings"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
 </navigation>
