@@ -10,14 +10,6 @@
     tools:ignore="VisualLintBounds"
     android:layout_marginTop="50dp">
 
-    <Button
-        android:id="@+id/homeButton"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="20dp"
-        android:backgroundTint="#000000"
-        android:text="Back"
-        app:cornerRadius="50dp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -67,11 +59,12 @@
             android:layout_margin="20dp"
             app:srcCompat="@drawable/milkyellowbg" />
 
-        <EditText
+        <TextView
             android:id="@+id/ItemName"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_gravity="right|top"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:ems="10"
             android:inputType="text"
@@ -85,7 +78,7 @@
             android:layout_height="wrap_content"
             />
 
-        <EditText
+        <TextView
             android:id="@+id/TagsText"
             android:layout_width="250dp"
             android:layout_height="50dp"
@@ -96,7 +89,7 @@
             android:text="Dairy ⋅ $$ ⋅ 0.6 Miles Away"
             tools:ignore="DuplicateClickableBoundsCheck" />
 
-        <EditText
+        <TextView
             android:id="@+id/TradeWithText"
             android:layout_width="250dp"
             android:layout_height="50dp"

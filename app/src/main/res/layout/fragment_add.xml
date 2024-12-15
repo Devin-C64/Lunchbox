@@ -55,17 +55,17 @@
             android:lines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/date_picker_title"
-        style="@style/Widget.AppCompat.TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/expiry_date_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/quantity_container"></com.google.android.material.textview.MaterialTextView>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/date_picker_title"
+            style="@style/Widget.AppCompat.TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/expiry_date_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quantity_container" />
 
     <DatePicker
         android:id="@+id/date_picker_container"
@@ -137,38 +137,71 @@
         android:layout_height="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:text="Images:"
+        android:text="Image:"
         android:textSize="18dp"
         app:helperText="@string/required"
         app:helperTextTextColor="@android:color/holo_red_dark" />
 
-    <ImageView
-        android:id="@+id/previewView"
-        android:layout_width="350dp"
-        android:layout_height="400dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="5dp"
-        android:background="#D5D2D2"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="590dp"
-        android:layout_marginBottom="15dp"/>
-        "/>
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="      Required"
+            android:textSize="12dp"
+            android:textColor="@android:color/holo_red_dark" />
+
+
+        <ImageView
+            android:id="@+id/previewView"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="5dp"
+            android:background="#D5D2D2"
+            android:layout_marginBottom="5dp"/>
+
+<!--    <ImageView-->
+<!--        android:id="@+id/previewView"-->
+<!--        android:layout_width="350dp"-->
+<!--        android:layout_height="400dp"-->
+<!--        android:layout_marginLeft="40dp"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:background="#D5D2D2"-->
+<!--        tools:layout_editor_absoluteX="30dp"-->
+<!--        tools:layout_editor_absoluteY="590dp"-->
+<!--        android:layout_marginBottom="15dp"/>-->
 
     <LinearLayout
         android:layout_width="440dp"
         android:layout_height="120dp"
         android:orientation="horizontal">
 
-        <Button
+        <ImageButton
             android:id="@+id/captureImgBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:text="@string/take_photo_button"
+            android:backgroundTint="@color/orange_500"
+            android:src="@drawable/baseline_photo_camera_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.57"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/item_tags_container" />
+            app:layout_constraintTop_toBottomOf="@+id/item_tags_container"
+            app:tint="@color/white" />
+
+        <ImageButton
+            android:id="@+id/fromAlbumBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:src="@drawable/baseline_file_upload_24"
+            app:layout_constraintRight_toLeftOf="@id/captureImgBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_tags_container"
+            android:backgroundTint="@color/orange_500"
+            app:tint="@color/white"/>
 
         <Button
             android:id="@+id/postItemBtn"
@@ -178,15 +211,6 @@
             android:layout_marginLeft="50dp"
             android:text="@string/postItemBtn" />
 
-        <Button
-            android:id="@+id/saveDraftbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:text="@string/SaveDraftBtn"
-            app:layout_constraintRight_toLeftOf="@id/captureImgBtn"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/item_tags_container" />
     </LinearLayout>
     <!--<TextView
         android:id="@+id/text_add"

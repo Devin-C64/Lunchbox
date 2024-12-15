@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
 }
 
 android {
@@ -35,6 +36,8 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        //compose = true
+
     }
 
 }
@@ -49,22 +52,35 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-    implementation(libs.androidx.legacy.support.v4)
-    implementation(libs.androidx.fragment.ktx)
+
+
+    //for map
+
+
+    //implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.gms:play-services-maps:18.1.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.fragment.ktx)
+    implementation("com.google.code.gson:gson:2.11.0")
+    
+
 
     val camerax_version = "1.3.0"
     // The following line is optional, as the core library is included indirectly by camera-camera2
-    implementation("androidx.camera:camera-core:1.4.0")
-    implementation("androidx.camera:camera-camera2:1.4.0")
+    implementation("androidx.camera:camera-core:1.4.1")
+    implementation("androidx.camera:camera-camera2:1.4.1")
 
     // If you want to additionally use the CameraX Lifecycle library
-    implementation("androidx.camera:camera-lifecycle:1.4.0")
+    implementation("androidx.camera:camera-lifecycle:1.4.1")
 
     // If you want to additionally use the CameraX View class
-    implementation("androidx.camera:camera-view:1.4.0")
-    implementation("androidx.camera:camera-extensions:1.4.0")
+    implementation("androidx.camera:camera-view:1.4.1")
+    implementation("androidx.camera:camera-extensions:1.4.1")
 }
+

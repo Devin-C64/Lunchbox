@@ -1,37 +1,166 @@
 package com.example.lunchbox.ui.add
 
 import android.app.Activity
-import android.app.DatePickerDialog
-import android.app.FragmentManager
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.icu.util.Calendar
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.FileProvider
+import androidx.annotation.RequiresExtension
+import androidx.core.view.drawToBitmap
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.navigation.findNavController
 import com.example.lunchbox.R
 import com.example.lunchbox.databinding.FragmentAddBinding
-import com.example.lunchbox.ui.home.HomeFragment
-import java.io.File
-import java.time.Month
+import java.io.ByteArrayOutputStream
 
+
+
+class AddFragment : Fragment() {
+    private lateinit var binding: FragmentAddBinding
+
+    @RequiresExtension(extension = Build.VERSION_CODES.R, version = 2)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentAddBinding.inflate(inflater, container, false)
+
+        // Toast for Post Item
+        binding.postItemBtn.setOnClickListener {
+            val itemNameText : EditText = requireView().findViewById(R.id.item_name_edit)
+            val itemQuantText : EditText = requireView().findViewById(R.id.quantity_edit)
+            val itemExpiryDate : DatePicker = requireView().findViewById(R.id.date_picker_container)
+            val itemTagsText : EditText = requireView().findViewById(R.id.item_tags_edit)
+            val itemDescText : EditText = requireView().findViewById(R.id.item_description_edit)
+            val image: ImageView = binding.previewView
+
+            val itemName = itemNameText.text.toString()
+            val itemQuant = itemQuantText.text.toString()
+            val itemExpiry = (itemExpiryDate.month+1).toString() + "/" + itemExpiryDate.dayOfMonth.toString() + "/" + itemExpiryDate.year.toString()
+            val itemTags = itemTagsText.text.toString()
+            val itemDesc = itemDescText.text.toString()
+
+            if (itemName.isNotEmpty() and itemQuant.isNotEmpty() and itemExpiry.isNotEmpty() and itemTags.isNotEmpty() and itemDesc.isNotEmpty() and (image.drawable!=null)) {
+                val imageBundle = image.drawToBitmap()
+                val stream = ByteArrayOutputStream()
+                imageBundle.compress(Bitmap.CompressFormat.PNG, 100, stream)
+                val byteArray: ByteArray = stream.toByteArray()
+
+                Toast.makeText(requireContext(), "Item Posted", Toast.LENGTH_SHORT).show()
+
+                // Bundle data to send to Profile fragment
+                val bundle = Bundle()
+                bundle.putInt("postedItem", 1)
+                bundle.putString("itemName", itemName)
+                bundle.putString("itemQuant", itemQuant)
+                bundle.putString("itemExpiry", itemExpiry)
+                bundle.putString("itemTags", itemTags)
+                bundle.putByteArray("image", byteArray)
+                bundle.putString("itemDesc", itemDesc)
+
+
+                it.findNavController().navigate(R.id.navigation_profile, bundle)  // Navigating to 'Profile' page
+            } else{
+                if (itemName.isEmpty()) {
+                    Toast.makeText(
+                        requireContext(),
+                        "Please provide an item name",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else if (itemQuant.isEmpty()){
+                    Toast.makeText(
+                        requireContext(),
+                        "Please provide an item quantity",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else if (itemExpiry.isEmpty()){
+                    Toast.makeText(
+                        requireContext(),
+                        "Please provide an expiry date",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else if (itemDesc.isEmpty()){
+                    Toast.makeText(
+                        requireContext(),
+                        "Please provide a description",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else if (itemTags.isEmpty()){
+                    Toast.makeText(
+                        requireContext(),
+                        "Please provide some tags",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else if (image.drawable==null){
+                    Toast.makeText(
+                        requireContext(),
+                        "Please provide an image",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
+
+        // Camera Functionality
+        val cameraButton = binding.captureImgBtn
+        val albumButton = binding.fromAlbumBtn
+        val previewView = binding.previewView
+        var isCamera = 0
+
+        if (previewView.drawable != null){
+            previewView.visibility = VISIBLE
+        } else {
+            previewView.visibility = GONE
+        }
+
+        val launcher = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                previewView.visibility = VISIBLE
+                if (isCamera == 1){
+                    val image = result.data?.extras?.get("data") as Bitmap
+                    previewView.setImageBitmap(image)
+                } else {
+                    val imageURI = result.data?.data as Uri
+                    previewView.setImageURI(imageURI)
+                }
+            }
+        }
+
+        cameraButton.setOnClickListener {
+            isCamera = 1
+            val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            launcher.launch(cameraIntent)
+        }
+
+        albumButton.setOnClickListener {
+            isCamera = 0
+            val albumIntent = Intent(MediaStore.ACTION_PICK_IMAGES)
+            launcher.launch((albumIntent))
+        }
+
+        return binding.root
+    }
+
+}
+/*
 class AddFragment : Fragment() {
 
     private var _binding: FragmentAddBinding? = null
@@ -61,10 +190,12 @@ class AddFragment : Fragment() {
         // Toast for Post Item
         binding.postItemBtn.setOnClickListener {
             Toast.makeText(requireContext(), "Item Posted", Toast.LENGTH_SHORT).show()
-            val newFrag = HomeFragment()
-            val fragManager = requireActivity().supportFragmentManager
-            val transaction = fragManager.beginTransaction()
-            transaction.replace(R.id.navigation_add, newFrag).commit()
+            it.findNavController().navigate(R.id.action_offers_to_sent)  // Navigating to 'Sent' page
+//
+//            val newFrag = HomeFragment()
+//            val fragManager = requireActivity().supportFragmentManager
+//            val transaction = fragManager.beginTransaction()
+//            transaction.replace(R.id.navigation_add, newFrag).commit()
         }
 
         // Camera Functionality
@@ -93,6 +224,8 @@ class AddFragment : Fragment() {
         _binding = null
     }
 }
+
+*/
 
 /*
 class AddFragment : Fragment() {
