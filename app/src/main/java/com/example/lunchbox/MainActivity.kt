@@ -14,6 +14,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.lunchbox.databinding.ActivityMainBinding
+import com.example.lunchbox.ui.add.AddFragment
 import java.lang.reflect.Array.get
 
 class MainActivity : AppCompatActivity() {

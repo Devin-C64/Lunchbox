@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
     tools:overrideLibrary="com.android.car.ui">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
 
     <uses-feature android:name="android.hardware.camera" android:required="true" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -23,7 +25,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lunchbox"
         tools:targetApi="31">
-
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

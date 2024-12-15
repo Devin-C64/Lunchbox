@@ -11,11 +11,16 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
-    <fragment
+    <activity
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.lunchbox.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:name="com.example.lunchbox.ui.map.MapActivity"
+        android:label="@string/title_dashboard"/>
+
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_dashboard"-->
+<!--        android:name="com.example.lunchbox.ui.dashboard.DashboardFragment"-->
+<!--        android:label="@string/title_dashboard"-->
+<!--        tools:layout="@layout/fragment_dashboard" />-->
 
     <fragment
         android:id="@+id/navigation_add"
@@ -34,6 +39,14 @@
         android:name="com.example.lunchbox.ui.search.SearchFragment"
         android:label="Search"
         tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/navigation_message"
+        android:name="com.example.lunchbox.ui.message.MessageFragment"
+        android:label="Message"
+        tools:layout="@layout/fragment_message" />
+
+
 
     <fragment
         android:id="@+id/navigation_profile"
