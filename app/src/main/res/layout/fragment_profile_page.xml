@@ -173,7 +173,7 @@
             android:ems="10"
             android:inputType="text"
             android:minHeight="48dp"
-            android:text="XX/XX/XXXX" />
+            android:text="Expiry Date: XX/XX/XXXX" />
 
         <TextView
             android:id="@+id/TagsText"
@@ -217,24 +217,26 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
-   <!-- <ListView
-        android:id="@+id/listView"
-        android:layout_width="420dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="2dp"
-        android:background="#EFED7C"
-        android:inputType="text"
-        android:scrollbars="vertical"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newPost"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints,TouchTargetSizeCheck" />-->
+
+<!--    <ListView-->
+<!--        android:id="@+id/listView"-->
+<!--        android:layout_width="420dp"-->
+<!--        android:layout_height="300dp"-->
+<!--        android:layout_marginStart="15dp"-->
+<!--        android:layout_marginEnd="15dp"-->
+<!--        android:layout_marginBottom="2dp"-->
+<!--        android:background="#EFED7C"-->
+<!--        android:inputType="text"-->
+<!--        android:scrollbars="vertical"-->
+<!--        android:textSize="16dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/newPost"-->
+<!--        app:layout_constraintVertical_bias="0.0"-->
+<!--        tools:ignore="MissingConstraints,TouchTargetSizeCheck" />-->
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

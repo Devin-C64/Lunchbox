@@ -41,7 +41,7 @@
         android:label="Message"
         tools:layout="@layout/fragment_message" >
         <action
-            android:id="@+id/action_navigation_message_to_sentFragment"
+            android:id="@+id/action_messageFragment_to_offersSentFragment"
             app:destination="@id/sentFragment" />
     </fragment>
 

@@ -59,10 +59,370 @@
                 android:text="Today's Spotlight"
                 android:textAlignment="textEnd"
                 android:textColor="@color/black"
-                android:textColorHighlight="@color/orange_500"
                 android:textSize="20dp" />
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/newItemsBanner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="@color/orange_500">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:text="New Items on LunchBox"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/newItemsBanner"
+            app:cardBackgroundColor="#EFED7C">
+
+
+            <ImageView
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:srcCompat="@drawable/cheeseyellobg" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_gravity="right|top"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Mozzarella Cheese"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <CheckBox
+                android:layout_gravity="right|top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="55dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_gravity="top|right"
+                android:ems="10"
+                android:inputType="text"
+                android:text="0.4 lbs"/>
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_gravity="top|right"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="95dp"
+                android:ems="10"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:text="Expiry Date: 01/31/2025" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_gravity="top|right"
+                android:layout_marginTop="140dp"
+                android:layout_marginHorizontal="10dp"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Tags: dairy, cheese, low fat"
+                tools:ignore="DuplicateClickableBoundsCheck" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="#EFED7C">
+
+
+            <ImageView
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:srcCompat="@drawable/milkyellowbg" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_gravity="right|top"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Full Fat Milk"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <CheckBox
+                android:layout_gravity="right|top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="55dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_gravity="top|right"
+                android:ems="10"
+                android:inputType="text"
+                android:text="1 quart"/>
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_gravity="top|right"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="95dp"
+                android:ems="10"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:text="Expiry Date: 12/27/2024" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_gravity="top|right"
+                android:layout_marginTop="140dp"
+                android:layout_marginHorizontal="10dp"
+                android:ems="10"
+                android:inputType="text"
+                android:text="dairy, carton, cold"
+                tools:ignore="DuplicateClickableBoundsCheck" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="#EFED7C">
+
+
+            <ImageView
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:srcCompat="@drawable/chipsyellobg" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_gravity="right|top"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Plain Potato Chips"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <CheckBox
+                android:layout_gravity="right|top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="55dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_gravity="top|right"
+                android:ems="10"
+                android:inputType="text"
+                android:text="17 oz."/>
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_gravity="top|right"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="95dp"
+                android:ems="10"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:text="Expiry Date: 2/23/2025" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_gravity="top|right"
+                android:layout_marginTop="140dp"
+                android:layout_marginHorizontal="10dp"
+                android:ems="10"
+                android:inputType="text"
+                android:text="snacks, potato, salty"
+                tools:ignore="DuplicateClickableBoundsCheck" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="#EFED7C">
+
+
+            <ImageView
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:srcCompat="@drawable/cheeseyellobg" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_gravity="right|top"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Feta Cheese"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <CheckBox
+                android:layout_gravity="right|top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="55dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_gravity="top|right"
+                android:ems="10"
+                android:inputType="text"
+                android:text="8 oz."/>
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_gravity="top|right"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="95dp"
+                android:ems="10"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:text="Expiry Date: 1/16/2025" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_gravity="top|right"
+                android:layout_marginTop="140dp"
+                android:layout_marginHorizontal="10dp"
+                android:ems="10"
+                android:inputType="text"
+                android:text="cheese, dairy, toppings"
+                tools:ignore="DuplicateClickableBoundsCheck" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="#EFED7C">
+
+
+            <ImageView
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:srcCompat="@drawable/chipsyellobg" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_gravity="right|top"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:ems="10"
+                android:inputType="text"
+                android:text="BBQ Potato Chips"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <CheckBox
+                android:layout_gravity="right|top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="55dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_gravity="top|right"
+                android:ems="10"
+                android:inputType="text"
+                android:text="17 oz."/>
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_gravity="top|right"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="95dp"
+                android:ems="10"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:text="Expiry Date: 03/01/2025" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_gravity="top|right"
+                android:layout_marginTop="140dp"
+                android:layout_marginHorizontal="10dp"
+                android:ems="10"
+                android:inputType="text"
+                android:text="snacks, potato, salty"
+                tools:ignore="DuplicateClickableBoundsCheck" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/bottomBanner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="75dp"
+            app:cardBackgroundColor="@color/orange_500">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:text="View more"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 </ScrollView>
