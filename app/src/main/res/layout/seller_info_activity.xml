@@ -14,7 +14,8 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="45dp"/>
 
     <!-- Yellow Box -->
     <RelativeLayout
