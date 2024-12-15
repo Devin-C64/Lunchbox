@@ -1,0 +1,33 @@
+{"template":
+  [
+    {
+      "id": "",
+      "email" : "",
+      "password": "",
+      "settings": {
+        "firstname":"",
+        "lastname" :""
+      },
+      "listings":[
+
+      ],
+      "offers": {
+        "completed": [
+          {
+
+          }
+
+        ],
+        "sent": [
+
+
+        ],
+        "recieved": [
+
+
+        ]
+      }
+    }
+  ]
+}
+

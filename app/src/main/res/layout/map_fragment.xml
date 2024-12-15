@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#EFED7C"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:queryHint="Search items"
+        android:visibility="visible" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        android:layout_below="@id/searchView"
+        android:layout_marginTop="10dp" />
+
+    <RelativeLayout
+        android:id="@+id/infoPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#EFED7C"
+        android:layout_marginBottom="80dp"
+        android:padding="16dp"
+        android:visibility="gone"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/personName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Posted by: Dan"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/itemInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Item: Mozzarella cheese • 1.2 miles away"
+            android:textSize="14sp"
+            android:layout_below="@id/personName"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/datePosted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date posted: 15 Nov 2024"
+            android:textSize="14sp"
+            android:layout_below="@id/itemInfo"
+            android:layout_marginTop="4dp" />
+    </RelativeLayout>
+
+</RelativeLayout>

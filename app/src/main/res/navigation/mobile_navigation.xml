@@ -111,4 +111,23 @@
             app:destination="@id/navigation_profile" />
     </fragment>
 
+    <fragment
+        android:id="@+id/navigation_map"
+        android:name="com.example.lunchbox.ui.map.MapFragment"
+        android:label="Map"
+        tools:layout="@layout/map_fragment" >
+        <action
+            android:id="@+id/action_navigation_map_to_map_seller_info"
+            app:destination="@id/map_seller_info" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/map_seller_info"
+        android:name="com.example.lunchbox.ui.map.SellerInfoFragment"
+        android:label="MapSellerInfo"
+        tools:layout="@layout/seller_info_activity"
+        />
+
+
+
 </navigation>
