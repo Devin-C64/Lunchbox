@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.lunchbox"
-        minSdk = 24
+        minSdk = 28
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -60,11 +60,15 @@ dependencies {
     implementation(libs.androidx.fragment.ktx)
     implementation("com.google.code.gson:gson:2.8.9")
     implementation("com.github.bumptech.glide:glide:4.15.1")
+    implementation(libs.car.ui.lib)
     annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation("com.google.code.gson:gson:2.11.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.gms:play-services-maps:18.1.0")
 
     val camerax_version = "1.3.0"
     // The following line is optional, as the core library is included indirectly by camera-camera2

@@ -18,7 +18,7 @@ import java.lang.reflect.Array.get
 
 class MainActivity : AppCompatActivity() {
 
-    public var sessionId = "000000001"
+    //public var sessionId = "000000001"
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

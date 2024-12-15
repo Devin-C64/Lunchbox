@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    >
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/listingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Listing Details"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="40dp"/>
+
+    <!-- Yellow Box -->
+    <RelativeLayout
+        android:id="@+id/cardDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/listingTitle"
+        android:background="#EFED7C"
+        android:padding="16dp"
+        android:elevation="4dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/postedBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Posted by: Dan"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/itemDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Item: Mozzarella cheese • 1.2 miles away"
+            android:textSize="14sp"
+            android:layout_below="@id/postedBy"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/datePosted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date posted: 15 Nov 2024"
+            android:textSize="14sp"
+            android:layout_below="@id/itemDetails"
+            android:layout_marginTop="8dp" />
+
+        <View
+            android:id="@+id/separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/datePosted"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/detailsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Details:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_below="@id/separator"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/priceDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: 3.50 $"
+            android:layout_below="@id/detailsTitle"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/weightDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weight: 8 oz"
+            android:layout_below="@id/priceDetails"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/expiryDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Expiry Date: 30 Nov 2024"
+            android:layout_below="@id/weightDetails"
+            android:layout_marginTop="4dp" />
+    </RelativeLayout>
+
+    <!-- Buttons -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardDetails"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/textButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#4FC3F7"
+            android:text="Text"
+            android:textColor="@android:color/white"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:id="@+id/addToListButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#B3E5FC"
+            android:text="Add to List"
+            android:textColor="@android:color/black"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+</RelativeLayout>
