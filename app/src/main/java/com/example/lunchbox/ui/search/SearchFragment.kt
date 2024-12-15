@@ -49,7 +49,10 @@ class SearchFragment : Fragment() {
                 showUsersWithItem(selectedItem.name)
             } else {
                 val selectedUser = filteredUsers[position]
-                openMessageFragment(selectedUser.username)
+                val selectedItem = itemList.find { it.username == selectedUser.username }
+                selectedItem?.let {
+                    openMessageFragment(selectedItem)
+                }
             }
         }
 
@@ -129,9 +132,13 @@ class SearchFragment : Fragment() {
         filteredUsers = emptyList()
     }
 
-    private fun openMessageFragment(username: String) {
-        val bundle = Bundle()
-        bundle.putString("username", username)
+    private fun openMessageFragment(item: Item) {
+        val bundle = Bundle().apply {
+            putString("username", item.username)
+            putString("itemName", item.name)
+            putDouble("itemDistance", item.distance)
+            putString("itemBuilding", item.closestSchoolBuilding)
+        }
 
         findNavController().navigate(R.id.navigation_message, bundle)
     }
