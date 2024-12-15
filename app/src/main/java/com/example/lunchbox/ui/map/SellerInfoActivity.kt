@@ -8,7 +8,7 @@ class SellerInfoActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.seller_info_activity)
-        // quick edit to push
+
         val name = intent.getStringExtra("name")
         val item = intent.getStringExtra("item")
         val distance = intent.getStringExtra("distance")

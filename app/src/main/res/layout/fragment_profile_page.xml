@@ -173,7 +173,7 @@
             android:ems="10"
             android:inputType="text"
             android:minHeight="48dp"
-            android:text="XX/XX/XXXX" />
+            android:text="Expires: XX/XX/XXXX" />
 
         <TextView
             android:id="@+id/TagsText"
