@@ -124,7 +124,7 @@ class AddFragment : Fragment() {
 
                     // Save the updated users list back to the file
                     saveDataToJson(users)
-                    Toast.makeText(requireContext(), "file saved", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(requireContext(), "file saved", Toast.LENGTH_SHORT).show()
                 } else{
                     Toast.makeText(requireContext(), "User not found", Toast.LENGTH_SHORT).show()
                 }
@@ -248,7 +248,7 @@ class AddFragment : Fragment() {
             outputStream.write(json.toByteArray())
             outputStream.close()
 
-            Toast.makeText(requireContext(), "Data saved successfully", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(requireContext(), "Data saved successfully", Toast.LENGTH_SHORT).show()
         } catch (e: Exception) {
             Toast.makeText(requireContext(), "Error saving data: ${e.message}", Toast.LENGTH_SHORT).show()
         }
