@@ -43,18 +43,172 @@
             app:cornerRadius="50dp"/>
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/offersListReceived"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:isScrollContainer="true"
+        android:orientation="vertical"
+        android:scrollbarTrackVertical="@color/white"
+        tools:ignore="SpeakableTextPresentCheck">
 
-    </ListView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/offerRecieved1"
+                android:layout_width="match_parent"
+                android:layout_height="270dp"
+                android:background="#EFED7C"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:visibility="visible"
+                app:cardBackgroundColor="#EFED7C">
+
+                <TextView
+                    android:id="@+id/offer1ItemName"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="10dp"
+                    android:inputType="text"
+                    android:paddingLeft="15dp"
+                    android:text="Item: Full Fat Milk"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="#0B0B0B"
+                    android:textStyle="bold"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/offer1TradeWithText"
+                    android:layout_width="250dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="left"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    android:paddingLeft="15dp"
+                    android:text="Recieved From: Li"
+                    android:textColor="#0B0B0B"
+                    android:textSize="16dp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/offer1Message"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:breakStrategy="simple"
+                    android:ellipsize="none"
+                    android:lineSpacingExtra="4dp"
+                    android:maxLines="5"
+                    android:minHeight="48dp"
+                    android:paddingLeft="15dp"
+                    android:text="Message: Hey would love to trade with you, lmk if interested?"
+                    android:textColor="#0B0B0B"
+                    android:textSize="16sp"
+                    tools:ignore="DuplicateClickableBoundsCheck" />
+
+                <TextView
+                    android:id="@+id/offer1Quantity"
+                    android:layout_width="250dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="left"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    android:paddingLeft="15dp"
+                    android:text="Quantity: 32 oz"
+                    android:textColor="#0B0B0B"
+                    android:textSize="14dp"
+                    tools:ignore="DuplicateClickableBoundsCheck,TextSizeCheck,TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/offer1Distance"
+                    android:layout_width="250dp"
+                    android:layout_height="23dp"
+                    android:layout_gravity="left"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    android:paddingLeft="15dp"
+                    android:text="Distance: 0.6 Miles Away"
+                    android:textColor="#0B0B0B"
+                    android:textSize="14dp"
+                    tools:ignore="DuplicateClickableBoundsCheck,TextSizeCheck,TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/offer1SchoolBuilding"
+                    android:layout_width="264dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="left"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    android:paddingLeft="15dp"
+                    android:text="Closest School Building: Trabant"
+                    android:textColor="#0B0B0B"
+                    android:textSize="14dp"
+                    tools:ignore="DuplicateClickableBoundsCheck,TextSizeCheck,TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/offer1Status"
+                    android:layout_width="250dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="left"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    android:paddingLeft="15dp"
+                    android:text="Status: Pending"
+                    android:textColor="#0B0B0B"
+                    android:textSize="16dp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="40dp"
+                    android:paddingTop="10dp">
+
+                    <Button
+                        android:id="@+id/acceptButton"
+                        android:layout_width="130dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="12dp"
+                        android:backgroundTint="#16D7FE"
+                        android:text="Accept"
+                        app:cornerRadius="50dp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <Button
+                        android:id="@+id/rejectButton"
+                        android:layout_width="130dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="12dp"
+                        android:backgroundTint="#16D7FE"
+                        android:text="Reject"
+                        app:cornerRadius="50dp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
     <TextView
         android:id="@+id/text_offers_received"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="-45dp"
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -62,5 +216,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"/>
 </LinearLayout>

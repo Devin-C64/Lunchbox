@@ -1,0 +1,12 @@
+[
+  {
+    "sendinguser" : "Li",
+    "recievinguser" : "LunchboxTest",
+    "message" : "Hey would love to trade with you, lmk if interested?",
+    "itemname ": "Full Fat Milk",
+    "quantity": "1.0",
+    "distance":"0.6",
+    "closestSchoolBuilding": "Trabant",
+    "status": "Pending"
+  }
+]
