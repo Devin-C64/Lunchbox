@@ -1,0 +1,22 @@
+[
+  {
+    "sendinguser" : "LunchboxTest",
+    "recievinguser" : "Andy",
+    "message" : "Hi, Andy I was wondering if you were interested in trading with me?",
+    "itemname ": "Gouda Cheese",
+    "quantity": "6.0",
+    "distance":"1.5",
+    "closestSchoolBuilding": "Smith Hall",
+    "status": "Pending"
+  },
+  {
+    "sendinguser" : "LunchboxTest",
+    "recievinguser" : "IsabellaMiller",
+    "message" : "Hey, could we trade?",
+    "itemname ": "Bread",
+    "quantity": "1.0",
+    "distance":"1.0",
+    "closestSchoolBuilding": "Morris Library",
+    "status": "Pending"
+  }
+]

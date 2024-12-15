@@ -11,6 +11,7 @@ import com.example.lunchbox.R
 import com.example.lunchbox.databinding.FragmentOffersSentBinding
 import android.widget.ArrayAdapter
 
+
 class OffersSent : Fragment() {
 
     private lateinit var binding: FragmentOffersSentBinding
@@ -26,7 +27,12 @@ class OffersSent : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding= FragmentOffersSentBinding.inflate(inflater, container, false)
+
+
+        /*binding = FragmentOffersSentBinding.inflate(inflater, container, false)
+
+
+        binding.receivedButton.setOnClickListener {*/
 
         arguments?.let {
             username = it.getString("username")
@@ -63,9 +69,11 @@ class OffersSent : Fragment() {
         binding.textOffersSent.visibility = View.GONE
         //Function to go to sent page from sent button
         binding.receivedButton.setOnClickListener{
+
             it.findNavController().navigate(R.id.action_sentFragment_to_receivedFragment)
         }
-        binding.completedButton.setOnClickListener{
+
+        binding.completedButton.setOnClickListener {
             it.findNavController().navigate(R.id.action_sentFragment_to_offersFragment)
         }
 
@@ -98,3 +106,4 @@ class OffersSent : Fragment() {
         }
     }
 }
+

@@ -45,58 +45,134 @@
             app:cornerRadius="50dp" />
     </LinearLayout>
 
-    <androidx.cardview.widget.CardView
+    <LinearLayout
+        android:id="@+id/completedOffer1"
         android:layout_width="match_parent"
-        android:layout_height="177dp"
-        android:orientation="horizontal"
-        app:cardBackgroundColor="#EFED7C">
+        android:layout_height="238dp"
+        android:background="#EFED7C"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        app:cardBackgroundColor="#EFED7C"
+        android:visibility="invisible"
+        >
 
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="115dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            app:srcCompat="@drawable/milkyellowbg" />
 
         <TextView
             android:id="@+id/ItemName"
             android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_gravity="right|top"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:ems="10"
+            android:layout_height="34dp"
+            android:layout_gravity="left"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="10dp"
             android:inputType="text"
-            android:text="Full Fat Milk"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:paddingLeft="15dp"
+            android:text="Item: Full Fat Milk"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#0B0B0B"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
 
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_gravity="right|top"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
 
         <TextView
-            android:id="@+id/TagsText"
+            android:id="@+id/Message"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:breakStrategy="simple"
+            android:ellipsize="none"
+            android:lineSpacingExtra="4dp"
+            android:maxLines="5"
+            android:minHeight="48dp"
+            android:paddingLeft="15dp"
+            android:text="Message: Hey would love to trade with you,lmk if interested?"
+            android:textColor="#0B0B0B"
+            android:textSize="16sp"
+            tools:ignore="DuplicateClickableBoundsCheck" />
+
+        <TextView
+            android:id="@+id/Quantity"
             android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center|right"
+            android:layout_height="22dp"
+            android:layout_gravity="left"
             android:ems="10"
             android:inputType="text"
             android:minHeight="48dp"
-            android:text="Dairy ⋅ $$ ⋅ 0.6 Miles Away"
-            tools:ignore="DuplicateClickableBoundsCheck" />
+            android:paddingLeft="15dp"
+            android:text="Quantity: 32 oz"
+            android:textColor="#0B0B0B"
+            android:textSize="14dp"
+            tools:ignore="DuplicateClickableBoundsCheck,TextSizeCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/Distance"
+            android:layout_width="250dp"
+            android:layout_height="23dp"
+            android:layout_gravity="left"
+            android:ems="10"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:paddingLeft="15dp"
+            android:text="Distance: 0.6 Miles Away"
+            android:textColor="#0B0B0B"
+            android:textSize="14dp"
+            tools:ignore="DuplicateClickableBoundsCheck,TextSizeCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/SchoolBuilding"
+            android:layout_width="264dp"
+            android:layout_height="28dp"
+            android:layout_gravity="left"
+            android:ems="10"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:paddingLeft="15dp"
+            android:text="Closest School Building: Trabant"
+            android:textColor="#0B0B0B"
+            android:textSize="14dp"
+            tools:ignore="DuplicateClickableBoundsCheck,TextSizeCheck,TouchTargetSizeCheck" />
 
         <TextView
             android:id="@+id/TradeWithText"
             android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_gravity="bottom|right"
+            android:layout_height="24dp"
+            android:layout_gravity="left"
             android:ems="10"
             android:inputType="text"
             android:minHeight="48dp"
-            android:text="Trade With: Li" />
-    </androidx.cardview.widget.CardView>
+            android:paddingLeft="15dp"
+            android:text="Traded With: Li"
+            android:textColor="#0B0B0B"
+            android:textSize="16dp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/Status"
+            android:layout_width="250dp"
+            android:layout_height="22dp"
+            android:layout_gravity="left"
+            android:ems="10"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:paddingLeft="15dp"
+            android:text="Status: Completed"
+            android:textColor="#0B0B0B"
+            android:textSize="16dp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/text_offers_completed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:text="You don't have any outstanding requests."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"/>
 </LinearLayout>

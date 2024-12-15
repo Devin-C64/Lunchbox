@@ -1,5 +1,5 @@
 package com.example.lunchbox.ui.profile
-/*
+
 data class Listing (
     val name : String,
     val quantity: Double,
@@ -8,7 +8,7 @@ data class Listing (
     val tags: Array<String>,
     val images: Array<String>,
 
-)*/
+)
 //Blank example of a listing item
 /*
 {

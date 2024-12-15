@@ -211,7 +211,7 @@ class ProfilePage : Fragment() {
     }
     private fun loadDataFromJson() {
         try {
-            val inputStream = requireContext().assets.open("users.json")
+            val inputStream = requireContext().assets.open("listings.json")
             val reader = InputStreamReader(inputStream)
             val userListType = object : TypeToken<List<User>>() {}.type
             val userDataList = Gson().fromJson<List<User>>(reader, userListType)
@@ -233,7 +233,7 @@ class ProfilePage : Fragment() {
     /*
         private fun loadDataFromJson() {
             try {
-                val inputStream = requireContext().assets.open("users.json")
+                val inputStream = requireContext().assets.open("listings.json")
                 val reader = InputStreamReader(inputStream)
 
                 // Change to List<User>() if your JSON starts with an array
@@ -342,7 +342,7 @@ class ProfilePage :Fragment() {
 
     private fun loadDataFromJson() {
         try {
-            val inputStream = requireContext().assets.open("users.json")
+            val inputStream = requireContext().assets.open("listings.json")
             val reader = InputStreamReader(inputStream)
             val userType = object : TypeToken<User>() {}.type // Correct type for User object
             val userData = Gson().fromJson<User>(reader, userType)

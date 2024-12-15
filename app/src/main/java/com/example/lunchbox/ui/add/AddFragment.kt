@@ -9,8 +9,6 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.EditText
@@ -24,12 +22,10 @@ import com.example.lunchbox.R
 import com.example.lunchbox.databinding.FragmentAddBinding
 import java.io.ByteArrayOutputStream
 import java.io.InputStreamReader
-import android.graphics.BitmapFactory
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.OutputStream
 import java.lang.Exception
-import java.util.*
 
 data class User(
     val username: String,
@@ -224,10 +220,10 @@ class AddFragment : Fragment() {
         return binding.root
     }
 
-    // Method to load data from users.json
+    // Method to load data from listings.json
     private fun loadDataFromJson(): MutableList<User> {
         try {
-            val inputStream = requireContext().assets.open("users.json")
+            val inputStream = requireContext().assets.open("listings.json")
             val reader = InputStreamReader(inputStream)
             val userListType = object : TypeToken<List<User>>() {}.type
             return Gson().fromJson(reader, userListType) // Deserialize and return the list
@@ -237,14 +233,14 @@ class AddFragment : Fragment() {
         }
     }
 
-    // Method to save updated data back to users.json
+    // Method to save updated data back to listings.json
     private fun saveDataToJson(users: MutableList<User>) {
         try {
             // Convert users list to JSON
             val json = Gson().toJson(users)
 
             // Write the updated data back to the file
-            val outputStream: OutputStream = requireContext().openFileOutput("users.json", Context.MODE_PRIVATE)
+            val outputStream: OutputStream = requireContext().openFileOutput("listings.json", Context.MODE_PRIVATE)
             outputStream.write(json.toByteArray())
             outputStream.close()
 
