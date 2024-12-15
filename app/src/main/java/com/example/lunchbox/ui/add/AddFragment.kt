@@ -93,41 +93,41 @@ class AddFragment : Fragment() {
 
                 Toast.makeText(requireContext(), "Item Posted", Toast.LENGTH_SHORT).show()
 
-                // Generate the image filename or URL (for simplicity, assuming it's a static file name here)
-                val imageFileName = "new_item_image.png"  // Use a unique name for the image if required
-
-                // Create a Listing object
-                val newListing = Listing(
-                    name = itemName,
-                    quantity = itemQuant.toDouble(),
-                    date = itemExpiry,
-                    description = itemDesc,
-                    tags = itemTags,
-                    images = listOf(imageFileName)  // Add the image to the list
-                )
-
-                // Load existing users data from JSON
-                val users = loadDataFromJson()
-
-                // Find the current user (assuming "cisc482test" as the username)
-                val currentUserIndex = users.indexOfFirst { it.username == "cisc482test" }
-                if (currentUserIndex != -1) {
-                    val user = users[currentUserIndex]
-                    val updatedListings = user.listings.toMutableList()
-                    updatedListings.add(newListing)
-
-                    // Create a new user object with updated listings
-                    val updatedUser = user.copy(listings = updatedListings)
-
-                    // Update the users list with the modified user
-                    users[currentUserIndex] = updatedUser
-
-                    // Save the updated users list back to the file
-                    saveDataToJson(users)
-                    //Toast.makeText(requireContext(), "file saved", Toast.LENGTH_SHORT).show()
-                } else{
-                    Toast.makeText(requireContext(), "User not found", Toast.LENGTH_SHORT).show()
-                }
+//                // Generate the image filename or URL (for simplicity, assuming it's a static file name here)
+//                val imageFileName = "new_item_image.png"  // Use a unique name for the image if required
+//
+//                // Create a Listing object
+//                val newListing = Listing(
+//                    name = itemName,
+//                    quantity = itemQuant.toDouble(),
+//                    date = itemExpiry,
+//                    description = itemDesc,
+//                    tags = itemTags,
+//                    images = listOf(imageFileName)  // Add the image to the list
+//                )
+//
+//                // Load existing users data from JSON
+//                val users = loadDataFromJson()
+//
+//                // Find the current user (assuming "cisc482test" as the username)
+//                val currentUserIndex = users.indexOfFirst { it.username == "cisc482test" }
+//                if (currentUserIndex != -1) {
+//                    val user = users[currentUserIndex]
+//                    val updatedListings = user.listings.toMutableList()
+//                    updatedListings.add(newListing)
+//
+//                    // Create a new user object with updated listings
+//                    val updatedUser = user.copy(listings = updatedListings)
+//
+//                    // Update the users list with the modified user
+//                    //users[currentUserIndex] = updatedUser
+//
+//                    // Save the updated users list back to the file
+//                    //saveDataToJson(users)
+//                    //Toast.makeText(requireContext(), "file saved", Toast.LENGTH_SHORT).show()
+//                } else{
+//                    Toast.makeText(requireContext(), "User not found", Toast.LENGTH_SHORT).show()
+//                }
 
                 // Bundle data to send to Profile fragment
                 val bundle = Bundle()
