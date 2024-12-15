@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- Add the required permissions for Google Maps -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
 
     <uses-feature android:name="android.hardware.camera" android:required="true" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -19,6 +23,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lunchbox"
         tools:targetApi="31">
+
+        <!-- Add the metadata for the Google Maps API key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBPh94XZqXPjJCAVkz60Q-Kszih2jsEuvw" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -31,7 +40,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SignUpActivity" />
+    <activity
+        android:name=".ui.map.MapActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+
+
 
     </application>
 
