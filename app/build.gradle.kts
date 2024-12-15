@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -61,6 +62,10 @@ dependencies {
     implementation("com.google.code.gson:gson:2.8.9")
     implementation("com.github.bumptech.glide:glide:4.15.1")
     implementation(libs.car.ui.lib)
+    implementation(libs.firebase.database)
+    implementation("com.google.firebase:firebase-auth:23.1.0")
+    implementation("com.google.firebase:firebase-database:21.0.0")
+
     annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

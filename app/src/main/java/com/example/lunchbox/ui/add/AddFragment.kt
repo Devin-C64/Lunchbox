@@ -25,19 +25,15 @@ import com.example.lunchbox.databinding.FragmentAddBinding
 import java.io.ByteArrayOutputStream
 import java.io.InputStreamReader
 import android.graphics.BitmapFactory
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.database.FirebaseDatabase
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.OutputStream
 import java.lang.Exception
 import java.util.*
 
-data class User(
-    val username: String,
-    val email: String,
-    val password: String,
-    val listings: List<Listing>,
-    val offers: Offers
-)
 
 data class Listing(
     val name: String,
@@ -47,6 +43,172 @@ data class Listing(
     val tags: List<String>,
     val images: List<String>
 )
+class AddFragment : Fragment() {
+    private lateinit var binding: FragmentAddBinding
+    private lateinit var database: FirebaseDatabase
+    private lateinit var auth: FirebaseAuth
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentAddBinding.inflate(inflater, container, false)
+
+        // Initialize Firebase components
+        database = FirebaseDatabase.getInstance()
+        auth = FirebaseAuth.getInstance()
+
+        // For testing purposes, sign in anonymously
+        auth.signInAnonymously().addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                // Successfully signed in anonymously, you can now proceed
+                val user = auth.currentUser
+
+                // Simulate setting a specific user ID for testing ("cisc482test")
+                user?.let {
+                    // Setting the UID to "cisc482test" for testing (do not use this in production)
+                    it.updateProfile(UserProfileChangeRequest.Builder().setDisplayName("cisc482test").build())
+                    println("Test user signed in with UID: cisc482test")
+                }
+            } else {
+                Toast.makeText(requireContext(), "Failed to sign in", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
+        binding.postItemBtn.setOnClickListener {
+            val itemNameText: EditText = requireView().findViewById(R.id.item_name_edit)
+            val itemQuantText: EditText = requireView().findViewById(R.id.quantity_edit)
+            val itemExpiryDate: DatePicker = requireView().findViewById(R.id.date_picker_container)
+            val itemTagsText: EditText = requireView().findViewById(R.id.item_tags_edit)
+            val itemDescText: EditText = requireView().findViewById(R.id.item_description_edit)
+            val image: ImageView = binding.previewView
+
+            val itemName = itemNameText.text.toString()
+            val itemQuant = itemQuantText.text.toString()
+            val itemExpiry = "${itemExpiryDate.month + 1}/${itemExpiryDate.dayOfMonth}/${itemExpiryDate.year}"
+            val itemTags = itemTagsText.text.toString().split(",").map { it.trim() }
+            val itemDesc = itemDescText.text.toString()
+
+            if (itemName.isNotEmpty() && itemQuant.isNotEmpty() && itemExpiry.isNotEmpty() && itemTags.isNotEmpty() && itemDesc.isNotEmpty() && image.drawable != null) {
+                val imageBundle = image.drawToBitmap()
+                val stream = ByteArrayOutputStream()
+                imageBundle.compress(Bitmap.CompressFormat.PNG, 100, stream)
+                val byteArray: ByteArray = stream.toByteArray()
+
+                // Generate a unique image filename or URL (you can upload to Firebase Storage if needed)
+                val imageFileName = "new_item_image.png"  // Replace with actual Firebase Storage URL if uploading image
+
+                // Create a Listing object
+                val newListing = Listing(
+                    name = itemName,
+                    quantity = itemQuant.toDouble(),
+                    date = itemExpiry,
+                    description = itemDesc,
+                    tags = itemTags,
+                    images = listOf(imageFileName)  // Add the image to the list
+                )
+
+                val currentUser = auth.currentUser
+                if (currentUser != null) {
+                    val userRef = database.getReference("users").child(currentUser.uid)
+                    val listingsRef = userRef.child("listings")
+
+                    // Add new listing to the user's listings
+                    listingsRef.push().setValue(newListing).addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(requireContext(), "Item Posted to Firebase", Toast.LENGTH_SHORT).show()
+
+                            // Navigate to Profile
+                            val bundle = Bundle().apply {
+                                putInt("postedItem", 1)
+                                putString("itemName", itemName)
+                                putString("itemQuant", itemQuant)
+                                putString("itemExpiry", itemExpiry)
+                                putString("itemTags", itemTags.joinToString(", "))
+                                putByteArray("image", byteArray)
+                                putString("itemDesc", itemDesc)
+                            }
+                            it.findNavController().navigate(R.id.navigation_profile, bundle)  // Navigating to 'Profile' page
+                        } else {
+                            Toast.makeText(requireContext(), "Failed to post item", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } else {
+                    Toast.makeText(requireContext(), "User not logged in", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                // Handle empty fields with appropriate toasts
+                if (itemName.isEmpty()) {
+                    Toast.makeText(requireContext(), "Please provide an item name", Toast.LENGTH_SHORT).show()
+                } else if (itemQuant.isEmpty()) {
+                    Toast.makeText(requireContext(), "Please provide an item quantity", Toast.LENGTH_SHORT).show()
+                } else if (itemExpiry.isEmpty()) {
+                    Toast.makeText(requireContext(), "Please provide an expiry date", Toast.LENGTH_SHORT).show()
+                } else if (itemDesc.isEmpty()) {
+                    Toast.makeText(requireContext(), "Please provide a description", Toast.LENGTH_SHORT).show()
+                } else if (itemTags.isEmpty()) {
+                    Toast.makeText(requireContext(), "Please provide some tags", Toast.LENGTH_SHORT).show()
+                } else if (image.drawable == null) {
+                    Toast.makeText(requireContext(), "Please provide an image", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+        // Camera Functionality
+        val cameraButton = binding.captureImgBtn
+        val albumButton = binding.fromAlbumBtn
+        val previewView = binding.previewView
+        var isCamera = 0
+
+        if (previewView.drawable != null) {
+            previewView.visibility = View.VISIBLE
+        } else {
+            previewView.visibility = View.GONE
+        }
+
+        val launcher = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                previewView.visibility = View.VISIBLE
+                if (isCamera == 1) {
+                    val image = result.data?.extras?.get("data") as Bitmap
+                    previewView.setImageBitmap(image)
+                } else {
+                    val imageURI = result.data?.data as Uri
+                    previewView.setImageURI(imageURI)
+                }
+            }
+        }
+
+        cameraButton.setOnClickListener {
+            isCamera = 1
+            val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            launcher.launch(cameraIntent)
+        }
+
+        albumButton.setOnClickListener {
+            isCamera = 0
+            val albumIntent = Intent(MediaStore.ACTION_PICK_IMAGES)
+            launcher.launch(albumIntent)
+        }
+
+        return binding.root
+    }
+}
+
+/*
+data class User(
+    val username: String,
+    val email: String,
+    val password: String,
+    val listings: List<Listing>,
+    val offers: Offers
+)
+
+
+
 
 data class Offers(
     val completed: List<Offer>,
@@ -254,7 +416,7 @@ class AddFragment : Fragment() {
         }
     }
 }
-
+*/
 /*
 class AddFragment : Fragment() {
     private lateinit var binding: FragmentAddBinding
