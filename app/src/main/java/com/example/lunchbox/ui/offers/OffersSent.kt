@@ -29,10 +29,8 @@ class OffersSent : Fragment() {
     ): View? {
 
 
-        /*binding = FragmentOffersSentBinding.inflate(inflater, container, false)
+        binding = FragmentOffersSentBinding.inflate(inflater, container, false)
 
-
-        binding.receivedButton.setOnClickListener {*/
 
         arguments?.let {
             username = it.getString("username")

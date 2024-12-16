@@ -42,7 +42,7 @@
             android:text="Received"
             app:cornerRadius="50dp"/>
     </LinearLayout>
-
+    <!--
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -282,6 +282,11 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+    -->
+    <ListView
+        android:id="@+id/offersListSent"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"/>
 
     <TextView
         android:id="@+id/text_offers_sent"
