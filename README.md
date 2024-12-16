@@ -5,7 +5,7 @@ Hi there! This is our team's submission for TA07 (previously TA06). It has our A
 * Devin Cummings
 * Abbey Liu
 * Farzana Adiba
-* Julia O'Neil
+* Julia O'Neill
 * Arun Vittedi
 
 ## Project Organization
